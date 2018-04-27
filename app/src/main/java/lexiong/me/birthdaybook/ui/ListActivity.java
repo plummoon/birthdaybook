@@ -35,6 +35,12 @@ public class ListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         listView = (ListView) findViewById(R.id.birthday_listview);
+        //为ListView增加一个HeadView(避免第一个Item被toolbar遮挡)
+        //abc_action_bar_default_height_material属性获取系统actionBar的高度
+        View headView = new View(this);
+        headView.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT,
+                (int)getResources().getDimension(R.dimen.abc_action_bar_default_height_material)));
+        listView.addHeaderView(headView);
         listView.setOnItemClickListener(mMessageClickedHandler);
         loadListData();
     }
@@ -43,7 +49,7 @@ public class ListActivity extends AppCompatActivity {
         List<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
 
 
-        for (Person stu : getPersonData(10)) {
+        for (Person stu : getPersonData(30)) {
             HashMap<String, Object> item = new HashMap<String, Object>();
             item.put("name", stu.getName());
             item.put("birthday", stu.getBirthday());
@@ -70,7 +76,7 @@ public class ListActivity extends AppCompatActivity {
         for (int i = 0; i < size; i++) {
             Person person = new Person();
             person.setBirthday(lexiong.me.birthdaybook.utils.DateUtils.getDateTimeString(dateNow));
-            person.setName("10Boy");
+            person.setName(i+"001Boy");
             person.setPersonId(String.valueOf(i + 1));
             personList.add(person);
         }
@@ -79,10 +85,11 @@ public class ListActivity extends AppCompatActivity {
     }
 
     // Create a message handling object as an anonymous class.
-    private AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
+    private ListView.OnItemClickListener mMessageClickedHandler = new ListView.OnItemClickListener() {
         public void onItemClick(AdapterView parent, View v, int position, long id) {
+            final TextView tv = (TextView)v.findViewById(R.id.name);
             Toast.makeText(getApplicationContext(),
-                    "You just click the text :"+ v.getId(), Toast.LENGTH_SHORT).show();
+                    "You just click the name :"+ tv.getText(), Toast.LENGTH_SHORT).show();
             // 取出点击listview某一项的内容
         }
     };

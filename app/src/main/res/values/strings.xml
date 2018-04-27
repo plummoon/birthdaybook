@@ -1,12 +1,22 @@
 <resources>
     <string name="app_name">生日本</string>
-    <string name="title_home">寿星</string>
-    <string name="title_blist">生日列表</string>
+    <string name="title_birthday">Birthday</string>
+    <string name="title_blist">List</string>
     <string name="title_notifications">通知</string>
     <string name="title_activity_list">ListActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="edit_message">请输入姓名</string>
     <string name="button_view">查看</string>
+    <string name="button_search">查找</string>
+    <string name="title_activity_test_bottom_nav_view_ex">TestBottomNavViewEx</string>
+    <string name="button_navex">View Bottom Navigation ViewEx</string>
+
+    <string name="person_name">熊宝</string>
+    <string name="static_fragment">Static fragment</string>
+    <string name="person_birthday">农历1987年11月26日</string>
+    <string name="personMobile">手机号码</string>
+    <string name="colon">：</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
